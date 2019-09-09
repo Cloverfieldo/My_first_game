@@ -128,6 +128,7 @@ public class Game extends Canvas implements Runnable,KeyListener{
 		
 		
 		
+		
 		/**Renderiza��o do jogo**/
 		
 		
@@ -143,10 +144,12 @@ public class Game extends Canvas implements Runnable,KeyListener{
 		g.dispose();
 		g = bs.getDrawGraphics();
 		g.drawImage(image, 0, 0, WIDTH*SCALE, HEIGHT*SCALE, null);
+		//Desenhar na tela sem pixels
 		g.setFont(new Font("arial", Font.BOLD, 20));
 		g.setColor(Color.orange);
 		g.drawString("Munição : " + player.ammo, 590, 30);
 		bs.show();
+		//
 		
 		
 	}
