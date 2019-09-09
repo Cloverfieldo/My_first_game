@@ -22,6 +22,7 @@ public class Player extends Entity{
 	private BufferedImage[] leftPlayer;
 	
 	public static double life = 100, playerMaxLife = 100;
+	public int ammo = 0;
 
 	public Player(int x, int y, int width, int height, BufferedImage sprite) {
 		super(x, y, width, height, sprite);
@@ -73,12 +74,26 @@ public class Player extends Entity{
 		Camera.x = Camera.clamp(this.getX() - (Game.WIDTH/2),0,World.WIDTH*16 - Game.WIDTH);
 		Camera.y = Camera.clamp(this.getY() - (Game.HEIGHT/2),0,World.HEIGHT*16 - Game.HEIGHT);
 		
-		checkItems();	
+		checkItemLifepack();	
+		checkItemAmmo();
 		}
 		
+	public void checkItemAmmo() {
+		for(int i = 0; i < Game.entities.size(); i++){
+			Entity atual = Game.entities.get(i);
+			if(atual instanceof Bullet) {
+				if(Entity.isColidding(this, atual)) {
+					ammo++;
+					System.out.println("Muniçaõ " + ammo);
+					Game.entities.remove(i);
+					return;
+				}
+			}
+			
+		}
+	}
 	
-	
-	public void checkItems() {
+	public void checkItemLifepack() {
 		for(int i = 0; i < Game.entities.size(); i++){
 			Entity atual = Game.entities.get(i);
 			if(atual instanceof Lifepack) {

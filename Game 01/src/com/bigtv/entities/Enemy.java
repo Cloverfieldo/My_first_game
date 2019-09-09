@@ -61,15 +61,16 @@ public class Enemy  extends Entity{
 		}
 	}else {
 		
-		//colisão do player co o inimigo // eu não preciso comentar em ingles
+		//colisï¿½o do player co o inimigo // eu nï¿½o preciso comentar em ingles
 		if(rand.nextInt(100) < 50) {
 			Game.player.life--;
 			Game.player.life--;
 			Game.player.life--;
+				
 			
 		}
 		if(Game.player.life <= 0) {
-			//System.exit(1);
+			System.exit(1);
 			
 		}
 		System.out.println("vida "+ Game.player.life);
