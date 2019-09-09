@@ -70,7 +70,7 @@ public class Enemy  extends Entity{
 			
 		}
 		if(Game.player.life <= 0) {
-			System.exit(1);
+			//System.exit(1);
 			
 		}
 		System.out.println("vida "+ Game.player.life);
